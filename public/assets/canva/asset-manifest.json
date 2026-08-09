@@ -1,0 +1,19 @@
+{
+  "source": {
+    "title": "Quynh VanM's Portfolio",
+    "canvaDesignId": "DAGyuhofoKU",
+    "pages": 7,
+    "mediaAssets": 269,
+    "note": "Page-level high-resolution Canva thumbnails and all 269 individually referenced published-page media files are stored locally. Individual media metadata is in media-manifest.json."
+  },
+  "assets": [
+    { "page": 1, "file": "page-01/page-01.jpg", "usage": ["hero", "about", "experience", "skills", "contact"], "sourceType": "page-thumbnail" },
+    { "page": 2, "file": "page-02/page-02.jpg", "usage": ["Workshop CV Upvise"], "sourceType": "page-thumbnail" },
+    { "page": 3, "file": "page-03/page-03.jpg", "usage": ["Xuân ai hồn Việt"], "sourceType": "page-thumbnail" },
+    { "page": 4, "file": "page-04/page-04.jpg", "usage": ["Media Collaborator"], "sourceType": "page-thumbnail" },
+    { "page": 5, "file": "page-05/page-05.jpg", "usage": ["Academic Competitions"], "sourceType": "page-thumbnail" },
+    { "page": 6, "file": "page-06/page-06.jpg", "usage": ["Hypothetical Projects"], "sourceType": "page-thumbnail" },
+    { "page": 7, "file": "page-07/page-07.jpg", "usage": ["Visual archive", "photography and video"], "sourceType": "page-thumbnail" }
+  ],
+  "mediaManifest": "media-manifest.json"
+}

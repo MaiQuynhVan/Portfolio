@@ -1,0 +1,27 @@
+{
+  "name": "quynh-van-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "optimize:assets": "node scripts/optimize-assets.mjs",
+    "qa:browser": "node scripts/qa-browser.mjs",
+    "prebuild": "npm run optimize:assets",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@vitejs/plugin-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "sharp": "^0.35.3"
+  }
+}
