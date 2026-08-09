@@ -7,7 +7,6 @@
     "dev": "vite",
     "optimize:assets": "node scripts/optimize-assets.mjs",
     "qa:browser": "node scripts/qa-browser.mjs",
-    "prebuild": "npm run optimize:assets",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
