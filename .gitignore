@@ -10,3 +10,8 @@ dist/
 *.tsbuildinfo
 .DS_Store
 Thumbs.db
+
+# Raw source material (originals of the optimised files in site-public); kept local only
+other-materials/
+tfa-images/
+data analysis/
