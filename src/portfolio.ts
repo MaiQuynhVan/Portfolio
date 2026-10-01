@@ -784,7 +784,7 @@ export const aboutPortrait: MediaAsset = {
 
 export const cvFile = {
   href: '/files/Mai-Quynh-Van-CV.pdf',
-  downloadName: 'Mai-Quynh-Van-CV.pdf',
+  downloadName: 'MaiQuynhVan_CV_Marketing.pdf',
 }
 
 export type Brand = {
