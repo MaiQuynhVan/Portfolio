@@ -672,7 +672,7 @@ a.latest-card:hover .latest-card__open svg { transform: translateX(4px); }
 /* Height is capped so the title still shows above the fold on laptop screens. */
 .case-hero__media .responsive-image { aspect-ratio: 16 / 7 !important; max-height: max(320px, calc(100svh - 380px)); }
 /* Overrides the inline bottom anchoring so the wide crop keeps the stage banner and faces. */
-.case-hero__media img { object-position: center 35% !important; }
+.case-hero__media img { object-position: var(--hero-position, center 35%) !important; }
 /* Square or portrait lead photo: text on the left, photo on the right. */
 .case-hero--split { align-items: center; display: grid; gap: clamp(32px, 5vw, 96px); grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); }
 .case-hero--split .case-hero__media { order: 2; }

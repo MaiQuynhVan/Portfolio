@@ -5,6 +5,8 @@ export type MediaAsset = {
   alt: string
   ratio?: string
   position?: string
+  // Crop anchor when the photo leads a case study in the wide hero frame.
+  heroPosition?: string
   // Optional title and one-line note shown under document screenshots.
   caption?: string
   note?: string
@@ -71,6 +73,8 @@ export type Project = {
   draft?: boolean
   // Hides the Role / Organiser / When row under the hero copy.
   hideMeta?: boolean
+  // Skips the wide lead photo; every photo goes to the reel instead.
+  hideHero?: boolean
   // Competitions, each with its proposal deck.
   competitions?: Competition[]
   // Recognition images introduced by one sentence.
@@ -142,9 +146,9 @@ export const profile = {
   tiktok: 'https://www.tiktok.com/@dreamy_artsupplies',
   headline: 'A marketing enthusiast at the beginning of her journey.',
   about: [
-    'As a final-year Digital Marketing student, I have hands-on experience in social media, content strategy, audience growth and marketing campaigns.',
-    'I enjoy developing audience-focused content, coordinating marketing activities and using performance insights to refine how a brand communicates.',
-    'Responsibility and a strong growth mindset guide my journey—I bring creativity and adaptability to every team while growing my expertise in marketing communications and brand building.',
+    'As a final-year Digital Marketing student, I have hands-on experience in social media, content strategy, audience growth, and marketing campaigns.',
+    'Skilled in creating audience-focused content, coordinating marketing activities, and leveraging performance insights to improve marketing effectiveness.',
+    'Responsibility and a strong growth mindset guide my journey, I bring creativity and adaptability to every team while growing my expertise in marketing strategy and execution.',
   ],
 }
 
@@ -171,7 +175,7 @@ export const projects: Project[] = [
       { value: '3,000+', label: 'email leads' },
     ],
     done: [
-      'Grew one channel from **0 to 15K (Facebook)** and **0 to 10K (TikTok)**, and supported a second from **29K to 52K**—**10M+ organic views** in 6 months.',
+      'Grew one channel from **0 to 15K (Facebook)** and **0 to 10K (TikTok)**, and supported a second from **29K to 52K** - **10M+ organic views** in 6 months.',
       'Contributed to the funnel from acquisition to conversion: **3,000+ email leads** and **500 leads per month**.',
       'Coordinated **6+ campaigns**, including promotions and workshops, with the Product team.',
       'Used **Claude, GA4 and Apps Script** to track, analyse and report marketing performance.',
@@ -231,6 +235,7 @@ export const projects: Project[] = [
     category: 'Leadership · Event Strategy',
     role: 'Head of Organising Committee',
     period: 'March 2025',
+    hideHero: true,
     intro: 'A collaborative workshop by FBA Presents and faculty partners, created to help UEL students rediscover and refine their CVs.',
     overview: [
       'At the beginning of 2025, I led “Upvise”, a practical workshop designed around interview skills and one-on-one CV reviews.',
@@ -244,7 +249,7 @@ export const projects: Project[] = [
     ],
     responsibilities: [
       { title: 'Strategic Planning', body: 'Planned the overall programme structure and built a detailed timeline for each activity.' },
-      { title: 'Team Coordination', body: 'Divided members into four main teams—Content, Media & Technical, External Relations and Production. Assigned specific tasks, monitored progress and ensured smooth collaboration across all teams.' },
+      { title: 'Team Coordination', body: 'Divided members into four main teams - Content, Media & Technical, External Relations and Production. Assigned specific tasks, monitored progress and ensured smooth collaboration across all teams.' },
       { title: 'Quality Control & Evaluation', body: 'Reviewed deliverables, tracked performance and supported team members to achieve goals.' },
     ],
     deliverables: ['Programme structure', 'Action plan', 'Interview skills session', 'One-on-one CV review', 'Team operations'],
@@ -252,7 +257,7 @@ export const projects: Project[] = [
     org: 'FBA Presents',
     teams: ['Content', 'Media & Technical', 'External Relations', 'Production'],
     story: [
-      'At the beginning of 2025, I led **“Upvise”**—a collaborative workshop by FBA Presents and our faculty partners, created to help UEL students rediscover and refine their CVs.',
+      'At the beginning of 2025, I led **“Upvise”** - a collaborative workshop by FBA Presents and our faculty partners, created to help UEL students rediscover and refine their CVs.',
     ],
     done: [
       'We received over **170 CVs** from UEL students and welcomed more than **150 participants**.',
@@ -293,12 +298,12 @@ export const projects: Project[] = [
     category: 'Cultural Preservation · Creative Direction',
     role: 'Creative Team Leader',
     period: 'November – December 2024',
-    intro: 'A cultural preservation programme that brought the beauty of hát bội—Vietnamese classical theatre—closer to students.',
+    intro: 'A cultural preservation programme that brought the beauty of hát bội - Vietnamese classical theatre - closer to students.',
     overview: [
       'Through stories, activities and performances, the programme connected traditional values with a young university audience.',
     ],
     story: [
-      'At the end of 2024, I led the **Creative Team** for the Cultural Preservation Program **“Xuân Ai Hồn Việt”**. Through stories, activities and performances, we brought the beauty of hát bội—a Vietnamese classical theatre—closer to students, hoping to rekindle their love for traditional values.',
+      'At the end of 2024, I led the **Creative Team** for the Cultural Preservation Program **“Xuân Ai Hồn Việt”**. Through stories, activities and performances, we brought the beauty of hát bội - a Vietnamese classical theatre - closer to students, hoping to rekindle their love for traditional values.',
     ],
     metrics: [
       { value: '450+', label: 'participants' },
@@ -322,7 +327,7 @@ export const projects: Project[] = [
     deliverables: ['Big idea', 'Programme identity', 'Main script', 'MC script', 'Task allocation', 'Programme timeline'],
     learning: 'Working closely with traditional artists taught me to listen carefully, stay humble and ensure every creative choice honoured the original spirit of hát bội.\nMost importantly, this project reminded me that preserving traditional values is **not about making them old-fashioned or distant, but about telling their stories in a way that feels closer and more relatable to younger generations**.',
     photos: [
-      { id: 'b718deeb8441c0399099406cfa60ddaf', alt: 'Hát bội artists performing in front of the bronze-drum backdrop', ratio: '3 / 2' },
+      { id: 'b718deeb8441c0399099406cfa60ddaf', alt: 'Hát bội artists performing in front of the bronze-drum backdrop', ratio: '3 / 2', heroPosition: 'center 72%' },
       { id: '86551a4856488825196eb98a81944635', alt: 'Xuân Ai Hồn Việt programme poster', ratio: '2 / 3' },
       { id: '376e99722c54d6e16a27916ef4fe6825', alt: 'Hát bội performance on the Xuân Ai Hồn Việt stage', ratio: '3 / 2' },
       { id: 'ec46df08b052311eb6c100ef08fc2dd6', alt: 'Students filling the hall for the programme', ratio: '3 / 2' },
@@ -351,7 +356,7 @@ export const projects: Project[] = [
       name: 'Xuân Ai Hồn Việt',
       meaning: [
         '**“Xuân”** nghĩa là vui tươi, **“ai”** nghĩa là bi thương, ảo não. Trong tiến trình lịch sử, dân tộc ta đã trải qua nhiều giai đoạn, có hưng có thịnh, có suy có tàn, nghĩa là vừa có xuân vừa có ai. Trong một vở hát bội cũng vậy, nghệ sĩ dẫn dắt người xem qua nhiều cung bậc cảm xúc, thăng có trầm có, vui có buồn có, mà tựu chung cũng là xuân và ai.',
-        'Mặt khác, ca điệu của hát bội có **“nói lối”**—tức là nói một lúc rồi hát, là quan trọng nhất. Và “nói lối” thì có 2 giọng chính là “xuân” và “ai”.',
+        'Mặt khác, ca điệu của hát bội có **“nói lối”** - tức là nói một lúc rồi hát, là quan trọng nhất. Và “nói lối” thì có 2 giọng chính là “xuân” và “ai”.',
         '“Văn hóa là hồn cốt dân tộc, văn hóa còn thì dân tộc còn”. Hát bội là một trong những văn hóa phi vật thể của Việt Nam, bởi vậy nên nói nó là **“hồn Việt”** cũng là điều hợp lý. Cụm từ này nó cũng phần nào thể hiện được big idea được đặt ra.',
       ],
     },
@@ -382,7 +387,7 @@ export const projects: Project[] = [
     ],
     org: 'FBA Presents',
     story: [
-      'In October 2023, I became a member of **FBA Presents**—a socio and political student organization that provides information and organizes events for students in the Faculty of Business Administration and the wider UEL community. This was where I first built my foundation in **content creation and social media communication**.',
+      'In October 2023, I became a member of **FBA Presents** - a socio and political student organization that provides information and organizes events for students in the Faculty of Business Administration and the wider UEL community. This was where I first built my foundation in **content creation and social media communication**.',
     ],
     metrics: [],
     doneHeading: 'So, what did I do here?',
@@ -539,7 +544,7 @@ export const projects: Project[] = [
         organiser: 'YEC, FTU Campus II',
         brand: 'Style by PNJ × Superego',
         intro: [
-          'The first competition I ever joined was Econtest—annual economics competition by YEC, FTU Campus II.',
+          'The first competition I ever joined was Econtest - annual economics competition by YEC, FTU Campus II.',
           'Among more than 140 teams, my teammates and I made it to the **Top 70**.',
         ],
         reflection: {
@@ -587,7 +592,7 @@ export const projects: Project[] = [
         intro: [
           'After that, I continued participating in the Marketing Challengers by RMIT University.',
           'This time, we developed an **integrated marketing proposal for LG**.',
-          'The brief focused on building a brand communication strategy that helps consumers perceive AI not only as Artificial Intelligence but also as **“Affectionate Intelligence”**—a human-centered, emotionally supportive form of technology.',
+          'The brief focused on building a brand communication strategy that helps consumers perceive AI not only as Artificial Intelligence but also as **“Affectionate Intelligence”** - a human-centered, emotionally supportive form of technology.',
         ],
         reflection: {
           text: [
@@ -609,7 +614,7 @@ export const projects: Project[] = [
           'This time, my team made it through more than 300 competing teams and became one of the **Top 25 semi-finalists**.',
         ],
         reflection: {
-          text: ['Through this competition, I not only strengthened my marketing knowledge but also learned how to manage my time effectively—balancing my midterm exams at university while preparing for TOEIC test.'],
+          text: ['Through this competition, I not only strengthened my marketing knowledge but also learned how to manage my time effectively - balancing my midterm exams at university while preparing for TOEIC test.'],
         },
         roles: ['Market research', 'Customer research', 'Customer insight', 'Strategic approach', 'Big idea & key message', 'Deployment plan'],
         slides: deck('comp-tam-nhin', 23, 'Tầm Nhìn Thương Hiệu proposal for Xanh SM “Tưởng XA, hóa ra lại GẦN”'),
@@ -653,7 +658,7 @@ export const projects: Project[] = [
         name: 'Instagram Strategy',
         client: 'IDA Academy',
         kicker: 'Hypothetical project · QCC Mastery Hub',
-        brief: 'A hypothetical project for IDA Academy—an online education brand specializing in Data Analytics. Develop marketing and content ideas, build strategic direction, design social posts, write content, and create an Instagram posting plan.',
+        brief: 'A hypothetical project for IDA Academy - an online education brand specializing in Data Analytics. Develop marketing and content ideas, build strategic direction, design social posts, write content, and create an Instagram posting plan.',
         done: [
           { title: 'Research & Strategize', points: ['Conducted audience and competitor research, identified key insights, and mapped out a strategic direction.', 'From insights, implemented a big idea based on pain points, and developed it into content themes related to the marketing strategy.'] },
           { title: 'Creating & Writing', points: ['Wrote hypothetical content for 12 Instagram posts.'] },
@@ -671,7 +676,7 @@ export const projects: Project[] = [
         name: 'TikTok Strategy',
         client: 'Dreamy Art Supplies',
         kicker: 'Hypothetical project · QCC Mastery Hub',
-        brief: 'A hypothetical project for Dreamy Art Supplies—an art supplies brand. Develop marketing and content ideas, plan the overall strategy, design video thumbnails, write video scripts, and build a posting plan for the TikTok platform.',
+        brief: 'A hypothetical project for Dreamy Art Supplies - an art supplies brand. Develop marketing and content ideas, plan the overall strategy, design video thumbnails, write video scripts, and build a posting plan for the TikTok platform.',
         done: [
           { title: 'Research & Strategize', points: ['Conducted audience and competitor research, identified key insights, and mapped out a strategic direction.', 'From insights, implemented a big idea based on pain points, and developed it into content themes related to the marketing strategy.'] },
           { title: 'Creating & Writing', points: ['Built content pillars and content angles following TikTok guidelines.', 'Wrote hypothetical scripts for 3 TikTok videos.'] },
@@ -693,7 +698,7 @@ export const projects: Project[] = [
         name: 'Influencers Marketing',
         client: 'Cocoon Vietnam',
         kicker: 'Hypothetical project · QCC Mastery Hub',
-        brief: 'A hypothetical project for Cocoon—a Vietnamese vegan cosmetic brand. Developed a basic influencer marketing proposal to support brand communication objectives.',
+        brief: 'A hypothetical project for Cocoon - a Vietnamese vegan cosmetic brand. Developed a basic influencer marketing proposal to support brand communication objectives.',
         done: [
           { title: 'Research & Planning', points: ['Researched the brand, products, past campaigns, and target audience.', 'Defined campaign objectives, key messages, and overall timeline.'] },
           { title: 'Influencer Strategy', points: ['Built a list of potential influencers with clear selection criteria.', 'Outlined influencer roles, responsibilities, and deliverables.', 'Planned influencer activities and estimated budget.'] },
@@ -712,7 +717,7 @@ export const projects: Project[] = [
         client: 'NOMNOM',
         kicker: 'Academic project · Adobe Illustrator',
         lead: 'Besides that, I also worked on several **academic projects** during my time at university…',
-        brief: 'Using Adobe Illustrator to develop a complete brand identity system and related visual assets for NOMNOM—a fresh food brand for pets.',
+        brief: 'Using Adobe Illustrator to develop a complete brand identity system and related visual assets for NOMNOM - a fresh food brand for pets.',
         done: [
           { points: ['Defined brand personality and visual direction.'] },
           { points: ['Designed the logo and core brand elements.'] },
@@ -864,10 +869,10 @@ export const certificates: Certificate[] = [
 ]
 
 export type JourneyItem = {
-  kind: 'Work experience' | 'Leadership' | 'Education'
-  date: string
+  kind: 'Work experience' | 'Leadership' | 'Education' | 'Professional development'
+  date?: string
   role: string
-  place: string
+  place?: string
   highlights: string[]
 }
 
@@ -879,7 +884,7 @@ export const journey: JourneyItem[] = [
     role: 'Digital Marketing Intern',
     place: 'The Future Analyst',
     highlights: [
-      'Grew one channel from 0 to 15K (Facebook) and 0 to 10K (TikTok), and supported a second from 29K to 52K—10M+ organic views in 6 months.',
+      'Grew one channel from 0 to 15K (Facebook) and 0 to 10K (TikTok), and supported a second from 29K to 52K - 10M+ organic views in 6 months.',
       'Contributed to the funnel from acquisition to conversion: 3,000+ email leads and 500 leads per month.',
       'Coordinated 6+ campaigns, including promotions and workshops, with the Product team.',
       'Used Claude, GA4 and Apps Script to track, analyse and report marketing performance.',
@@ -914,8 +919,15 @@ export const journey: JourneyItem[] = [
     place: 'University of Economics and Law, VNU-HCM',
     highlights: [
       'GPA 8.67/10 and an academic encouragement scholarship.',
-      // Lines after the first are listed beneath it, one per line.
-      'Training:\nPower BI (The Future Analyst)\nAI Agent for Data Analytics (The Future Analyst)\nSocial Media Starter (QCC Mastery Hub, Excellent)',
+    ],
+  },
+  {
+    kind: 'Professional development',
+    role: 'Training & Certifications',
+    highlights: [
+      'Master Analytical Thinking & Data Analysis with Power BI_The Future Analyst',
+      'AI Agent for Data Analytics & Decision Making_The Future Analyst',
+      'Social Media Starter_QCC Mastery Hub (Excellent)',
     ],
   },
 ]

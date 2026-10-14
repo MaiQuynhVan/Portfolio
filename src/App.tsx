@@ -186,7 +186,7 @@ function SiteHeader({ route }: { route: Route }) {
   return (
     <header className="site-header">
       <div className="site-header__bar">
-        <a className="monogram" href="#home" onClick={closeMenu} aria-label="Quynh Van — home">
+        <a className="monogram" href="#home" onClick={closeMenu} aria-label="Quynh Van - home">
           QV<span>.</span>
         </a>
         <nav className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
@@ -455,8 +455,8 @@ function JourneyAccordion() {
                 >
                   <span className="journey-item__label">{item.kind}</span>
                   <span className="journey-item__title">{item.role}</span>
-                  <span className="journey-item__place">{item.place}</span>
-                  <span className="journey-item__date">{item.date}</span>
+                  {item.place && <span className="journey-item__place">{item.place}</span>}
+                  {item.date && <span className="journey-item__date">{item.date}</span>}
                   <span className="journey-item__chevron" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>
                   </span>
@@ -1114,7 +1114,8 @@ function ProjectPage({ project }: { project: Project }) {
   const documents = project.documents ?? []
   const story = project.story ?? [project.intro, ...project.overview]
   const done = project.done ?? project.metrics.map((metric) => `**${metric.value}** ${metric.label}`)
-  const [heroPhoto, ...moments] = photos as [MediaAsset | undefined, ...MediaAsset[]]
+  const [heroPhoto, ...moments] = (project.hideHero ? [undefined, ...photos] : photos) as [MediaAsset | undefined, ...MediaAsset[]]
+  const reelOffset = heroPhoto ? 1 : 0
   const tags = [...project.category.split(' · '), ...(project.org ? [project.org] : [])]
   const jumpItems = useMemo(
     () => project.competitions?.map((comp, compIndex) => ({ id: `comp-${compIndex}`, name: comp.name, badge: comp.badge }))
@@ -1142,7 +1143,7 @@ function ProjectPage({ project }: { project: Project }) {
 
         <header className={`case-hero${splitHero ? ' case-hero--split' : ''}${heroPhoto ? '' : ' case-hero--center'}`}>
           {heroPhoto && (
-            <button type="button" className="case-hero__media" onClick={() => setLightbox({ items: photos, index: 0 })} aria-label={`Open image: ${heroPhoto.alt}`} data-reveal>
+            <button type="button" className="case-hero__media" style={heroPhoto.heroPosition ? { '--hero-position': heroPhoto.heroPosition } as CSSProperties : undefined} onClick={() => setLightbox({ items: photos, index: 0 })} aria-label={`Open image: ${heroPhoto.alt}`} data-reveal>
               <ResponsiveImage asset={heroPhoto} priority sizes="92vw" />
             </button>
           )}
@@ -1428,7 +1429,7 @@ function ProjectPage({ project }: { project: Project }) {
                 className="case-reel__item"
                 key={`${asset.id}-${photoIndex}`}
                 style={{ aspectRatio: reelRatio(asset.ratio) }}
-                onClick={() => setLightbox({ items: photos, index: (photoIndex % moments.length) + 1 })}
+                onClick={() => setLightbox({ items: photos, index: (photoIndex % moments.length) + reelOffset })}
                 aria-label={`Open image: ${asset.alt}`}
                 aria-hidden={isClone || undefined}
                 tabIndex={isClone ? -1 : undefined}
@@ -1781,13 +1782,13 @@ function App() {
 
   useEffect(() => {
     if (project) {
-      document.title = `${project.title} — Quynh Van Portfolio`
+      document.title = `${project.title} - Quynh Van Portfolio`
     } else if (route === 'projects') {
-      document.title = 'Projects — Quynh Van Portfolio'
+      document.title = 'Projects - Quynh Van Portfolio'
     } else if (route === 'contact') {
-      document.title = 'Contact — Quynh Van Portfolio'
+      document.title = 'Contact - Quynh Van Portfolio'
     } else {
-      document.title = 'Quynh Van — Marketing Portfolio'
+      document.title = 'Quynh Van - Marketing Portfolio'
     }
   }, [project, route])
 
